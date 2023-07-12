@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th class="col-1">No</th>
-                    <th>Title</th>
+                    <th class="text-center">Title</th>
                     <th class="col-2">Action</th>
                 </tr>
             </thead>
@@ -16,7 +16,7 @@
                 @foreach ($data as $item)
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $item->title }}</td>
+                        <td class="text-center">{{ $item->title }}</td>
                         <td>
                             <a href="{{ route('pages.edit', $item->id) }}" class="btn btn-sm btn-warning">Update</a>
                             <form onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')" action="{{ route('pages.destroy', $item->id) }}" class="d-inline" method="POST">

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pages;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class PagesController extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Pages::orderBy('title', 'asc')->get();
+        $data = Page::orderBy('title', 'asc')->get();
         return view('dashboard.pages.index')->with('data', $data);
     }
 
@@ -46,7 +46,7 @@ class PagesController extends Controller
             'title' => $request->title,
             'content' => $request->content
         ];
-        Pages::create($data);
+        Page::create($data);
         return redirect()->route('pages.index')->with('success', 'Berhasil Menambahkan Halaman');
     }
 
@@ -61,16 +61,16 @@ class PagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
-        $data = Pages::where('id', $id)->first();
+        $data = Page::where('id', $id)->first();
         return view('dashboard.pages.edit')->with('data', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         $request->validate(
             [
@@ -86,16 +86,16 @@ class PagesController extends Controller
             'title' => $request->title,
             'content' => $request->content
         ];
-        Pages::where('id', $id)->update($data);
+        Page::where('id', $id)->update($data);
         return redirect()->route('pages.index')->with('success', 'Update Halaman Berhasil');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        Pages::where('id', $id)->delete();
+        Page::where('id', $id)->delete();
         return redirect()->route('pages.index')->with('success', 'Halaman Berhasil Dihapus');
     }
 }

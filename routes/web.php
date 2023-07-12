@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PagesController;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ExperienceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +29,8 @@ Route::get('/auth/logout', [AuthController::class, "logout"]);
 
 Route::prefix('dashboard')->middleware('auth')->group(
     function () {
-        Route::get('/', [PagesController::class, 'index']);
-        Route::resource('pages', PagesController::class);
+        Route::get('/', [PageController::class, 'index']);
+        Route::resource('pages', PageController::class);
+        Route::resource('experience', ExperienceController::class);
     }
 );
