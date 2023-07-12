@@ -1,6 +1,5 @@
 @extends('dashboard.layout')
 @section('content')
-    <div class="pb-3"><a href="{{ route('pages.index') }}" class="btn btn-secondary text-white">Back</a></div>
     <form action="{{ route('pages.update', $data->id) }}" method="POST">
         @csrf
         @method('put')
@@ -14,6 +13,9 @@
             <label for="content" class="form-label">Content</label>
             <textarea name="content" id="content" class="form-control summernote" rows="5">{{ $data->content }}</textarea>    
         </div>
-        <button class="btn btn-primary text-white" name="submit" type="submit">Submit</button>
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('pages.index') }}" class="btn btn-secondary text-white">Back</a>
+            <button class="btn btn-primary text-white" name="submit" type="submit">Submit</button>
+        </div>
     </form>
 @endsection

@@ -1,18 +1,30 @@
 @extends('dashboard.layout')
 @section('content')
-    <form action="{{ route('experience.store') }}" method="POST">
+    <form action="{{ route('education.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-          <label for="title" class="form-label">Posisi</label>
+          <label for="title" class="form-label">Universitas</label>
           <input type="text"
-            class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Posisi"
+            class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Universitas"
             value="{{ Session::get('title') }}">
         </div>
         <div class="mb-3">
-          <label for="info1" class="form-label">Nama Perusahaan</label>
+          <label for="info1" class="form-label">Nama Fakultas</label>
           <input type="text"
-            class="form-control" name="info1" id="info1" aria-describedby="helpId" placeholder="Nama Perusahaan"
+            class="form-control" name="info1" id="info1" aria-describedby="helpId" placeholder="Nama Fakultas"
             value="{{ Session::get('info1') }}">
+        </div>
+        <div class="mb-3">
+            <label for="info2" class="form-label">Nama Prodi</label>
+            <input type="text"
+              class="form-control" name="info2" id="info2" aria-describedby="helpId" placeholder="Nama Prodi"
+              value="{{ Session::get('info2') }}">
+        </div>
+        <div class="mb-3">
+            <label for="info3" class="form-label">IPK</label>
+            <input type="text"
+              class="form-control" name="info3" id="info3" aria-describedby="helpId" placeholder="IPK"
+              value="{{ Session::get('info3') }}">
         </div>
         <div class="mb-3">
             <div class="row">
@@ -26,12 +38,8 @@
                 </div>
             </div>
         </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea name="content" id="content" class="form-control summernote" rows="5">{{ Session::get('content') }}</textarea>    
-        </div>
         <div class="d-flex justify-content-between">
-            <a href="{{ route('experience.index') }}" class="btn btn-secondary text-white">Back</a>
+            <a href="{{ route('education.index') }}" class="btn btn-secondary text-white">Back</a>
             <button class="btn btn-primary text-white" name="submit" type="submit">Submit</button>
         </div>
     </form>

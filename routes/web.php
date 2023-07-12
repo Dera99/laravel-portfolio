@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 
 /*
@@ -32,5 +33,6 @@ Route::prefix('dashboard')->middleware('auth')->group(
         Route::get('/', [PageController::class, 'index']);
         Route::resource('pages', PageController::class);
         Route::resource('experience', ExperienceController::class);
+        Route::resource('education', EducationController::class);
     }
 );
