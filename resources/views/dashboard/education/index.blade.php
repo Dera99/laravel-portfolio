@@ -1,7 +1,7 @@
 @extends('dashboard.layout');
 @section('content')
-<p class="card-title">Experience</p>
-    <div class="pb-3"><a href="{{ route('education.create') }}" class="btn btn-primary text-white">+ Add Experience</a></div>
+<p class="card-title">Education</p>
+    <div class="pb-3"><a href="{{ route('education.create') }}" class="btn btn-primary text-white">+ Add Education</a></div>
     <div class="table-responsive">
         <table class="table table-stripped">
             <thead>

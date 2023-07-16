@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 
@@ -34,5 +35,7 @@ Route::prefix('dashboard')->middleware('auth')->group(
         Route::resource('pages', PageController::class);
         Route::resource('experience', ExperienceController::class);
         Route::resource('education', EducationController::class);
+        Route::get('skill', [SkillController::class, "index"])->name('skill.index');
+        Route::post('skill', [SkillController::class, "update"])->name('skill.update');
     }
 );
