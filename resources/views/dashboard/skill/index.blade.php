@@ -3,16 +3,16 @@
     <form action="{{ route('skill.update') }}" method="POST">
         @csrf
         <div class="mb-3">
-          <label for="language" class="form-label">Programming Language & Tools</label>
+          <label for="_language" class="form-label">Programming Language & Tools</label>
           <input type="text"
-            class="form-control form-control-sm skill" name="language" id="language" aria-describedby="helpId" placeholder="Programming Language & Tools"
-            value="{{ get_meta_value('language') }}">
+            class="form-control form-control-sm skill" name="_language" id="_language" aria-describedby="helpId" placeholder="Programming Language & Tools"
+            value="{{ get_meta_value('_language') }}">
         </div>
         <div class="mb-3">
-            <label for="workflow" class="form-label">Workflow</label>
-            <textarea name="workflow" id="workflow" class="form-control summernote" rows="5">{{ get_meta_value('workflow') }}</textarea>    
+            <label for="_workflow" class="form-label">Workflow</label>
+            <textarea name="_workflow" id="_workflow" class="form-control summernote" rows="5">{{ get_meta_value('_workflow') }}</textarea>    
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-end">
             <button class="btn btn-primary text-white" name="submit" type="submit">Submit</button>
         </div>
     </form>

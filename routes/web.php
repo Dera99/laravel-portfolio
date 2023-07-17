@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +21,7 @@ use App\Http\Controllers\ExperienceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingPageController::class, "index"]);
 
 Route::redirect('home', 'dashboard');
 
@@ -37,5 +38,9 @@ Route::prefix('dashboard')->middleware('auth')->group(
         Route::resource('education', EducationController::class);
         Route::get('skill', [SkillController::class, "index"])->name('skill.index');
         Route::post('skill', [SkillController::class, "update"])->name('skill.update');
+        Route::get('profile', [ProfileController::class, "index"])->name('profile.index');
+        Route::post('profile', [ProfileController::class, "update"])->name('profile.update');
+        Route::get('settings', [SettingController::class, "index"])->name('settings.index');
+        Route::post('settings', [SettingController::class, "update"])->name('settings.update');
     }
 );

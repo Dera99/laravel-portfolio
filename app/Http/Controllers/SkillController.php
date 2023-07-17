@@ -22,16 +22,16 @@ class SkillController extends Controller
         if ($request->method() == 'POST') {
             $request->validate(
                 [
-                    'language' => 'required',
-                    'workflow' => 'required',
+                    '_language' => 'required',
+                    '_workflow' => 'required',
                 ],
                 [
-                    'language.required' => 'Silahkan masukan Bahasa Pemrograman / Tools yang anda kuasai',
-                    'workflow.required' => 'Silahkan masukan workflow yang anda kuasai'
+                    '_language.required' => 'Silahkan masukan Bahasa Pemrograman / Tools yang anda kuasai',
+                    '_workflow.required' => 'Silahkan masukan workflow yang anda kuasai'
                 ]
             );
-            Metadata::updateOrCreate(['meta_key' => 'language'], ['meta_value' => $request->language]);
-            Metadata::updateOrCreate(['meta_key' => 'workflow'], ['meta_value' => $request->workflow]);
+            Metadata::updateOrCreate(['meta_key' => '_language'], ['meta_value' => $request->_language]);
+            Metadata::updateOrCreate(['meta_key' => '_workflow'], ['meta_value' => $request->_workflow]);
             return redirect()->route('skill.index')->with('success', 'Update data skill berhasil');
         }
     }
